@@ -1,0 +1,11 @@
+e:\github\Wox\Debug\Plugins\Wox.Plugin.Youdao\Images\youdao.ico
+e:\github\Wox\Debug\Plugins\Wox.Plugin.Youdao\plugin.json
+e:\github\Wox\Debug\Plugins\Wox.Plugin.Youdao\Wox.Plugin.Youdao.dll
+e:\github\Wox\Debug\Plugins\Wox.Plugin.Youdao\Wox.Plugin.Youdao.pdb
+e:\github\Wox\Plugins\Wox.Plugin.Youdao\obj\Debug\Wox.Plugin.Youdao.csprojResolveAssemblyReference.cache
+e:\github\Wox\Plugins\Wox.Plugin.Youdao\obj\Debug\Wox.Plugin.Youdao.dll
+e:\github\Wox\Plugins\Wox.Plugin.Youdao\obj\Debug\Wox.Plugin.Youdao.pdb
+e:\github\Wox\Output\Debug\Plugins\Wox.Plugin.Youdao\Images\youdao.ico
+e:\github\Wox\Output\Debug\Plugins\Wox.Plugin.Youdao\plugin.json
+e:\github\Wox\Output\Debug\Plugins\Wox.Plugin.Youdao\Wox.Plugin.Youdao.dll
+e:\github\Wox\Output\Debug\Plugins\Wox.Plugin.Youdao\Wox.Plugin.Youdao.pdb

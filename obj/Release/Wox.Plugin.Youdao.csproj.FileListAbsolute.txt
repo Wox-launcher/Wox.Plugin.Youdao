@@ -1,0 +1,6 @@
+E:\github\Wox\Output\Release\Plugins\Wox.Plugin.Youdao\Images\youdao.ico
+E:\github\Wox\Output\Release\Plugins\Wox.Plugin.Youdao\plugin.json
+E:\github\Wox\Output\Release\Plugins\Wox.Plugin.Youdao\Wox.Plugin.Youdao.dll
+E:\github\Wox\Output\Release\Plugins\Wox.Plugin.Youdao\Wox.Plugin.Youdao.pdb
+E:\github\Wox\Plugins\Wox.Plugin.Youdao\obj\Release\Wox.Plugin.Youdao.dll
+E:\github\Wox\Plugins\Wox.Plugin.Youdao\obj\Release\Wox.Plugin.Youdao.pdb
