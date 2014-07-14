@@ -7,5 +7,6 @@
     "Version":"1.0",
     "Language":"csharp",
     "Website":"https://github.com/qianlifeng/Wox.Plugin.Youdao",
-    "ExecuteFileName":"Wox.Plugin.Youdao.dll"
+    "ExecuteFileName":"Wox.Plugin.Youdao.dll",
+	"IcoPath":"Images\\youdao.ico"
 }
