@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using Wox.Infrastructure.Http;
 
