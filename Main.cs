@@ -59,8 +59,14 @@ namespace Wox.Plugin.Youdao
                         IcoPath = ico,
                         Action = c =>
                         {
-                            Clipboard.SetText(explantion);
-                            _context.API.ShowMsg("解释已被存入剪贴板");
+                            if (this.copyToClipboard(explantion))
+                            {
+                                _context.API.ShowMsg("解释已被存入剪贴板");
+                            }
+                            else
+                            {
+                                _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
+                            }
                             return false;
                         }
                     });
@@ -73,8 +79,14 @@ namespace Wox.Plugin.Youdao
                         IcoPath = ico,
                         Action = c =>
                         {
-                            Clipboard.SetText(t);
-                            _context.API.ShowMsg("翻译已被存入剪贴板");
+                            if (this.copyToClipboard(t))
+                            {
+                                _context.API.ShowMsg("翻译已被存入剪贴板");
+                            }
+                            else
+                            {
+                                _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
+                            }
                             return false;
                         }
                     });
@@ -91,8 +103,14 @@ namespace Wox.Plugin.Youdao
                             IcoPath = ico,
                             Action = c =>
                             {
-                                Clipboard.SetText(t.key);
-                                _context.API.ShowMsg("网络翻译已被存入剪贴板");
+                                if (this.copyToClipboard(t.key))
+                                {
+                                    _context.API.ShowMsg("网络翻译已被存入剪贴板");
+                                }
+                                else
+                                {
+                                    _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
+                                }
                                 return false;
                             }
                         });
@@ -134,6 +152,18 @@ namespace Wox.Plugin.Youdao
         public void Init(PluginInitContext context)
         {
             _context = context;
+        }
+
+        private bool copyToClipboard(string text)
+        {
+            try
+            {
+                Clipboard.SetText(text);
+            }catch(System.Exception e)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
