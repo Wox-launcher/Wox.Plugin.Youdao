@@ -49,48 +49,36 @@ namespace Wox.Plugin.Youdao
             TranslateResult o = JsonConvert.DeserializeObject<TranslateResult>(json);
             if (o.errorCode == 0)
             {
-                if (o.basic?.phonetic != null)
+
+                if(o.translation != null)
+                {
+                    var translation = string.Join(", ", o.translation.ToArray());
+                    var title = translation;
+                    if (o.basic?.phonetic != null)
+                    {
+                        title += " [" + o.basic.phonetic + "]";
+                    }
+                    results.Add(new Result
+                    {
+                        Title = title,
+                        SubTitle = "翻译结果",
+                        IcoPath = ico,
+                        Action = this.copyToClipboardFunc(translation)
+                    });
+                }
+
+                if(o.basic?.explains != null)
                 {
                     var explantion = string.Join(",", o.basic.explains.ToArray());
                     results.Add(new Result
                     {
-                        Title = o.basic.phonetic,
-                        SubTitle = explantion,
+                        Title = explantion,
+                        SubTitle = "简明释义",
                         IcoPath = ico,
-                        Action = c =>
-                        {
-                            if (this.copyToClipboard(explantion))
-                            {
-                                _context.API.ShowMsg("解释已被存入剪贴板");
-                            }
-                            else
-                            {
-                                _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
-                            }
-                            return false;
-                        }
+                        Action = this.copyToClipboardFunc(explantion)
                     });
                 }
-                foreach (string t in o.translation)
-                {
-                    results.Add(new Result
-                    {
-                        Title = t,
-                        IcoPath = ico,
-                        Action = c =>
-                        {
-                            if (this.copyToClipboard(t))
-                            {
-                                _context.API.ShowMsg("翻译已被存入剪贴板");
-                            }
-                            else
-                            {
-                                _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
-                            }
-                            return false;
-                        }
-                    });
-                }
+
                 if (o.web != null)
                 {
                     foreach (WebTranslation t in o.web)
@@ -98,21 +86,10 @@ namespace Wox.Plugin.Youdao
                         var translation = string.Join(",", t.value.ToArray());
                         results.Add(new Result
                         {
-                            Title = t.key,
-                            SubTitle = translation,
+                            Title = translation,
+                            SubTitle = "网络释义："+ t.key,
                             IcoPath = ico,
-                            Action = c =>
-                            {
-                                if (this.copyToClipboard(t.key))
-                                {
-                                    _context.API.ShowMsg("网络翻译已被存入剪贴板");
-                                }
-                                else
-                                {
-                                    _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
-                                }
-                                return false;
-                            }
+                            Action = this.copyToClipboardFunc(translation)
                         });
                     }
                 }
@@ -152,6 +129,22 @@ namespace Wox.Plugin.Youdao
         public void Init(PluginInitContext context)
         {
             _context = context;
+        }
+
+        private System.Func<ActionContext, bool> copyToClipboardFunc(string text)
+        {
+            return c =>
+            {
+                if (this.copyToClipboard(text))
+                {
+                    _context.API.ShowMsg("翻译已被存入剪贴板");
+                }
+                else
+                {
+                    _context.API.ShowMsg("剪贴板打开失败，请稍后再试");
+                }
+                return false;
+            };
         }
 
         private bool copyToClipboard(string text)
