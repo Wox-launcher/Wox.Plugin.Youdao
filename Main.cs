@@ -45,7 +45,7 @@ namespace Wox.Plugin.Youdao
                 });
                 return results;
             }
-            var json = Http.Get(TranslateUrl + query.Search, _context.Proxy).Result;
+            var json = Http.Get(TranslateUrl + query.Search).Result;
             TranslateResult o = JsonConvert.DeserializeObject<TranslateResult>(json);
             if (o.errorCode == 0)
             {

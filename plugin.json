@@ -4,7 +4,7 @@
     "Name":"有道翻译",
     "Description":"有道中英互译",
     "Author":"qianlifeng, happlebao",
-    "Version":"1.1.0",
+    "Version":"1.1.1",
     "Language":"csharp",
     "Website":"https://github.com/Wox-launcher/Wox.Plugin.Youdao",
     "ExecuteFileName":"Wox.Plugin.Youdao.dll",
